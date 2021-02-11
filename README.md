@@ -1,8 +1,12 @@
 # Mobile360
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mobile360`. To experiment with that code, run `bin/console` for an interactive prompt.
+A Ruby wrapper for Mobile360 APIs.
 
-TODO: Delete this and the text above, and describe your gem
+### Contents
+1. SMS
+   * Broadcast
+   * DLR(Todo)
+   * MO Routing
 
 ## Installation
 
@@ -21,8 +25,21 @@ Or install it yourself as:
     $ gem install mobile360
 
 ## Usage
+### Broadcast
+```ruby
+client = Mobile360::SMS::Broadcast.new(
+    username: 'username',
+    password: 'securepassword',
+    msisdn: '63917XXXXXXX',
+    content: 'Hi, your OTP is: 12345',
+    shortcode_mask: 'TEST'
+)
 
-TODO: Write usage instructions here
+response = client.call
+```
+
+If you want to raise an exception every unsuccessful delivery use: `#call!`
+
 
 ## Development
 
